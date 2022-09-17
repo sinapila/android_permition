@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val bluetoothAdapter: BluetoothAdapter? = bluetoothManager.getAdapter()
 
         if (bluetoothAdapter == null) {
-            // Device doesn't support Bluetooth
+            Toast.makeText(this@MainActivity, "Bluetooth is not find", Toast.LENGTH_SHORT).show()
         }
 
         binding.buttonBlutooth.setOnClickListener {
@@ -44,14 +44,6 @@ class MainActivity : AppCompatActivity() {
 
                 val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
                 val REQUEST_ENABLE_BT = 1
-
-
-//                if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED) {
-//                    // Requesting the permission
-//                    ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.BLUETOOTH_CONNECT), 100)
-//                } else {
-//                    Toast.makeText(this@MainActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
-//                }
 
                 ActivityCompat.startActivityForResult(
                     this@MainActivity,
